@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR Heatmap Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>DiaPress Heatmap Dashboard</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search Name or click on bar">
+            <button id="searchButton">Search</button>
+            <button id="allButton">All</button>
+        </div>
+        <div id="heatmap"></div>
+        <div id="detailsContainer" style="display: none;">
+            <img id="detailsImage" src="" alt="Details Image">
+            <!-- Other details (Name, Date of Birth, Age) can be added here -->
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="static/script.js"></script>
+</body>
+</html>
