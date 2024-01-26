@@ -1,35 +1,30 @@
-from flask import Flask, render_template, send_from_directory, jsonify
-import os
+Main.py for my diabetes 
+from flask import Flask, render_template, jsonify
+import json
 
 app = Flask(__name__)
 
-# Define the directory where static files are located
-STATIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
+# Load the data from Diabetes.json
+with open('Diabetes.json') as f:
+    data = json.load(f)
 
-# Define the FHIR data
-fhir_data = {
-    "resourceType": "Bundle",
-    "id": "bundle-transaction",
-    "type": "transaction",
-    "entry": [
-        # ... (your FHIR data)
-    ]
-}
-
-# Endpoint to serve index.html
 @app.route('/')
 def index():
     return render_template('index.html')
-
-# Endpoint to serve FHIR data
-@app.route('/fhir_data.json')
-def get_fhir_data():
-    return jsonify(fhir_data)
-
-# Endpoint to serve static files
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(STATIC_DIR, filename)
+@app.route('/get_data/<search_term>')
+def get_filtered_data(search_term):
+    if search_term.lower() == 'all':
+        # Send the entire dataset
+        return jsonify(data)
+    else:
+        # Filter the dataset for the specific name
+        filtered_data = [entry for entry in data if entry['Name'].lower() == search_term.lower()]
+        return jsonify(filtered_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+                                                                                                                                                                       from flask import Flask, render_template, jsonifyimport json
+
