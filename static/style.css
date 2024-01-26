@@ -1,0 +1,37 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#heatmap {
+    margin-top: 20px;
+}
+
+.search-container {
+    margin-top: 20px;
+}
+
+#searchInput {
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+.bar-names {
+    fill: green;
+    cursor: pointer;
+    transition: fill 0.3s ease;
+}
+
+.bar-names:hover {
+    fill: rgb(185, 144, 238);
+}
