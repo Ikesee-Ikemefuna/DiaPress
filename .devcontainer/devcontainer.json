@@ -1,0 +1,25 @@
+{
+  "name": "Python Codespace",
+  "dockerFile": "Dockerfile",
+  "context": ".",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+        // Add other extensions if needed
+      ]
+    }
+  },
+  "forwardPorts": [5000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Application",
+      "onAutoForward": "openBrowser"
+    }
+  },
+ "postCreateCommand": "apk add --no-cache git && pip install Flask==2.0.1 gunicorn && gunicorn -b 0.0.0.0:8000 main:app"
+}
