@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 # Load the data from Diabetes.json
-with open('Diabetes.json') as f:
+with open('fhir_data.json') as f:
     data = json.load(f)
 
 @app.route('/')
